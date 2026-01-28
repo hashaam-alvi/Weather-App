@@ -1,0 +1,25 @@
+
+.byHourHeader{
+    border-bottom: 2px #a9b3b8 solid;
+    text-align: center;
+    /* width: 80%; */
+    color: #474b4d;
+}
+
+
+.byHourContainer{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 4rem 0;
+
+}
+
+.byHourBody::-webkit-scrollbar{
+    display:none;
+}
+
+.byHourBody{
+        overflow: scroll;
+}

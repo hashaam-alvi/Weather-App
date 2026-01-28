@@ -1,0 +1,26 @@
+.matrix {
+    width: 60rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    /* width: 100%;/ */
+    justify-content: space-evenly;
+}
+
+.matrix-card {
+    background: #cad2d6;
+    border-radius: 12px;
+    padding: 14px;
+    /* text-align: center; */
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 25%;
+}
+
+.matrix-card .icon {
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}

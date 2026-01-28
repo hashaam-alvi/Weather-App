@@ -1,0 +1,60 @@
+/* .searchBar {
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    gap: 50px;
+    padding: 12px;
+} */
+
+
+.searchBar {
+    width: 100%;
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 1rem;
+    flex-wrap: wrap;
+}
+
+.citySearch {
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-size: 16px;
+    outline: none;
+    width: 40%;
+}
+
+.citySearch:focus {
+    border-color: #a9b3b8;
+}
+
+.enterB {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background: #a9b3b8;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 15%;
+}
+
+.enterB:hover {
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 600px) {
+    .searchBar {
+        flex-direction: column;
+    }
+
+}

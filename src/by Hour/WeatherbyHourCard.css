@@ -1,0 +1,80 @@
+.weather-hour-card {
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.weather-hour-card.current-hour {
+  outline: 2px solid #a9b3b8;
+}
+
+.weather-hour-card.selected-hour {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+.temp {
+  text-align: center;
+  display: grid;
+  grid-template-columns:
+    minmax(60px, 1fr)   /* time */
+    minmax(80px, 1.2fr) /* temp */
+    minmax(100px, 1.4fr) /* wind */
+    minmax(110px, 1.6fr) /* rain */
+    minmax(70px, 1fr);  /* day/night */
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+
+
+.weather-hour-card:hover {
+  background-color: #d7dadb;
+  border-radius: 20px;
+  transform: scale(1.01);
+}
+
+.hour-details {
+    margin-top: 8px;
+  padding: 8px;
+  border-top: 1px solid #a9b3b8;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-content: center;
+}
+
+.hour-details p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.weather-hour-card.current-hour {
+  background: #a9b3b8;
+}
+
+.temp strong {
+  font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+  .temp {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 8px;
+    text-align: left;
+  }
+
+  .temp span,
+  .temp strong {
+    justify-self: start;
+  }
+
+  .temp strong {
+    grid-column: span 2;
+    font-size: 1.2rem;
+  }
+}
