@@ -22,7 +22,7 @@ export default function TempHeader() {
                     <h1 className="TempReading">{currWeather.temperature_2m} °C</h1>
                     <div className="footer">
                         <p>Feels Like <strong>{currWeather.apparent_temperature} °C</strong> </p>
-                        <p> {currWeather.rain ? "🌨 Raining" : "🌤 Clear Sky"}</p>
+                        <p> {currWeather.rain ? "🌨 Raining" :"Clear Sky"}</p>
                         <p> {currWeather.is_day ? "☀ Day " : "🌙 Night"}</p>
 
                     </div>

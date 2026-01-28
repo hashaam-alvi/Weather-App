@@ -47,22 +47,12 @@ export const CurrWeatherObject = [
 
 export async function fetchWeather(lat, lon) {
   const response =  await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,rain,precipitation,wind_speed_10m,wind_direction_10m,pressure_msl,wind_gusts_10m,surface_pressure&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,rain,visibility,wind_speed_10m,wind_gusts_10m,soil_temperature_0cm&timezone=auto`
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,rain,precipitation,wind_speed_10m,wind_direction_10m,pressure_msl,wind_gusts_10m,surface_pressure&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,rain,visibility,wind_speed_10m,wind_gusts_10m,soil_temperature_0cm,is_day&timezone=auto`
     
   )
     return response.json();
-    // .then((data) =>  setCurrWeather(data.current))
-    // .catch((err) => console.error(err));
 }
 
-// export function fetchHourlyWeather(lat, lon, setHourlyWeather) {
-//   fetch(
-    // 'https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,rain,visibility,wind_speed_10m,wind_gusts_10m,soil_temperature_0cm&timezone=auto'
-//   )
-//     .then((res) => res.json())
-//     .then((data) => setHourlyWeather(data.hourly) )
-//     .catch((err) => console.error(err));
-// }
 
 export async function fetchLocationName(lat, lon) {
   const res = await fetch(
@@ -77,17 +67,4 @@ export async function fetchLocationName(lat, lon) {
 }
 
 
-// export async function handleSearch() {
-//         if (!cityInput) return;
-
-//         const res = await fetch(
-//             `https://geocoding-api.open-meteo.com/v1/search?name=${cityInput}&count=1`
-//         );
-//         const data = await res.json();
-
-//         if (!data.results) return alert("City not found");
-
-//         const { latitude, longitude } = data.results[0];
-//         setWeatherByCoords(latitude, longitude);
-//     }
   
