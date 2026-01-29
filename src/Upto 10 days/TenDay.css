@@ -1,5 +1,5 @@
 .forecast-page {
-  padding: 20px;
+  /* padding: 20px; */
   width: 100%;
   align-content: center;
 }
@@ -11,7 +11,7 @@
 }
 
 .embla {
-  position: relative;
+  /* position: relative; */
   margin-top: 16px;
 }
 
@@ -75,12 +75,12 @@
 }
 
 .temp {
-  font-size: 1.1rem;
   text-align: center;
+  display: block;
 }
 
 .details {
-  margin-top: 6px;
-  font-size: 0.85rem;
+  /* margin-top: 6px; */
+  /* font-size: 0.85rem; */
   text-align: center;
 }

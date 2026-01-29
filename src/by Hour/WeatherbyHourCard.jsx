@@ -1,9 +1,10 @@
 import { useMemo } from "react";
 import './WeatherbyHourCard.css'
+import { checkWeatherCode } from "../WeatherObject.js";
 
 export default function WeatherbyHourCard({ data, selectedHourId, setSelectedHourId }) {
-    const { id, time, temp, rain, wind, is_day, apparent_temperature, relative_humidity_2m, precipitation_probability, pressure_msl, visibility, wind_gusts_10m, soil_temperature_0cm } = data;
-
+    const { id, time, temp, code, wind, is_day, apparent_temperature, relative_humidity_2m, precipitation_probability, pressure_msl, visibility, wind_gusts_10m, soil_temperature_0cm } = data;
+console.log(code)
     const hour = useMemo(() => new Date(time).getHours(), [time]);
 
     const isCurrentHour = useMemo(() => {
@@ -24,11 +25,11 @@ export default function WeatherbyHourCard({ data, selectedHourId, setSelectedHou
     return (
         <div className="hourCardcontainer">
             <div className={`weather-hour-card${isCurrentHour ? " current-hour" : ""}${isSelected ? " selected-hour" : ""}`} onClick={handleClick} data-hour-id={id}>
-                <div className="temp">
+                <div className="tempHour">
                     <span>{String(hour).padStart(2, "0")}:00</span>
-                    <strong>{String(temp).padStart(2, "0")} °C</strong> 
+                    <strong>🌡️ {String(temp.toFixed(1)).padStart(4, "0")} °C</strong> 
                     <span>💨 {Number(wind).toFixed(1)} km/h</span>
-                    <span>{rain ? "🌧 Raining" : "Clear"}</span>
+                    <span>{checkWeatherCode(code)}</span>
                     <span>{is_day ? "🌤 Day" : "🌙 Night"}</span>
                 </div>
 

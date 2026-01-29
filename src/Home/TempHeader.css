@@ -14,11 +14,16 @@
     gap: 5px;
     padding: 20px 40px;
     flex-wrap: wrap;
-    align-items: center;
+    align-content: center;
     background-color: #a9b3b8;
     color: #f8fdff;
     border-radius:  13px 13px 0 0 ;
     margin-bottom: 30px;
+}
+
+.homeheader p{
+    margin-bottom: 0;
+    align-content: center;
 }
 
 .footer {

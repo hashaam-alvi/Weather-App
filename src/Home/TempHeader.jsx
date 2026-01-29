@@ -1,5 +1,6 @@
 import "./TempHeader.css"
 import { useWeather } from "../WeatherContext";
+import { checkWeatherCode } from "../WeatherObject";
 
 export default function TempHeader() {
     const { currWeather, location } = useWeather();
@@ -22,7 +23,9 @@ export default function TempHeader() {
                     <h1 className="TempReading">{currWeather.temperature_2m} °C</h1>
                     <div className="footer">
                         <p>Feels Like <strong>{currWeather.apparent_temperature} °C</strong> </p>
-                        <p> {currWeather.rain ? "🌨 Raining" :"Clear Sky"}</p>
+                        {/* <p> {currWeather.weather_code ? "🌨 Raining" :"Clear Sky"}</p> */}
+                        <p> {checkWeatherCode(currWeather.weather_code)}</p>
+                        {console.log(currWeather.weather_code)}
                         <p> {currWeather.is_day ? "☀ Day " : "🌙 Night"}</p>
 
                     </div>

@@ -6,7 +6,7 @@ export default function WeatherHourBody() {
   const { hourlyWeather } = useWeather();
   const [selectedHourId, setSelectedHourId] = useState(null); 
   if (!hourlyWeather) return <p>Loading hourly weather...</p>;
-
+console.log(hourlyWeather.weather_code)
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -31,7 +31,7 @@ export default function WeatherHourBody() {
         wind: hourlyWeather.wind_speed_10m[i],
         wind_gusts_10m: hourlyWeather.wind_gusts_10m[i],
         soil_temperature_0cm: hourlyWeather.soil_temperature_0cm[i],
-        rain: hourlyWeather.rain[i],
+        code: hourlyWeather.weather_code[i],
         is_day: hourlyWeather.is_day?.[i] ?? true
       };
     })
