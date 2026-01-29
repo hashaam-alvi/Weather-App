@@ -7,7 +7,7 @@ export default function SideNav() {
         { label: "Home", path: "/" },
         { label: "By City", path: "/city" },
         { label: "By Hour", path: "/hourly" },
-        { label: "Up to 10 Days", path: "/forecast" },
+        { label: "10 Day Report", path: "/forecast" },
     ];
 
     return (

@@ -1,4 +1,3 @@
-/* PAGE */
 .forecast-page {
   padding: 20px;
   width: 100%;
@@ -7,16 +6,16 @@
 
 .forecast-page h2 {
   text-align: center;
+    font-weight: 900;
+    font-family: Harrington;
 }
 
-/* ---------------- EMBLA ---------------- */
 .embla {
   position: relative;
   margin-top: 16px;
 }
 
 .embla__viewport {
-  /* flex: 1; */
   align-content: center;
   height: 50vh;
   overflow: hidden;
@@ -28,12 +27,6 @@
   padding: 0 1rem;
 }
 
-/* -------- RESPONSIVE SLIDES -------- */
-/* .embla__slide {
-  flex: 0 0 100%;
-  padding: 10px;
-
-} */
 
 .embla__slide {
   position: relative;
@@ -61,11 +54,6 @@
   }
 }
 
-.embla__container {
-  /* width: 100%; */
-  /* flex: 1; */
-}
-
 .forecast-card {
   height: 100%;
   padding: 14px;
@@ -77,26 +65,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* z-index: 1; */
 }
 
-/* .forecast-card:hover { */
-  /* transform: translateY(-4px);
-  z-index: 2; */
-  /* opacity: 0.8; */
-/* } */
 
-/* .forecast-card.active {
-  background: #9fabb1;
-  transform: translate(30%, 0) scale(1.7);
-  color: #d4e2e9;
-  border-radius: 14px; */
-  /* margin-left: 3rem; */
-  /* z-index: 5; */
-/* } */
-
-
-/* TEXT */
 .day {
   font-weight: 600;
   text-align: center;

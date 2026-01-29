@@ -1,10 +1,18 @@
-
 .byHourHeader{
     border-bottom: 2px #a9b3b8 solid;
     text-align: center;
     /* width: 80%; */
     color: #474b4d;
+    
 }
+
+.byHourHeader h2{
+    font-weight: 900;
+    font-family: Harrington;
+    
+}
+
+
 
 
 .byHourContainer{
