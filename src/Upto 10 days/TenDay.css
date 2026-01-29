@@ -24,12 +24,28 @@
 
 .embla__container {
   display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
 /* -------- RESPONSIVE SLIDES -------- */
-.embla__slide {
+/* .embla__slide {
   flex: 0 0 100%;
   padding: 10px;
+
+} */
+
+.embla__slide {
+  position: relative;
+}
+
+.embla__slide.is-active {
+  z-index: 10;
+}
+
+.embla__slide.is-active .forecast-card {
+  transform: translate(0%, 0) scale(1.7);
+  border: 1px solid white;
 }
 
 @media (min-width: 600px) {
@@ -64,20 +80,20 @@
   /* z-index: 1; */
 }
 
-.forecast-card:hover {
+/* .forecast-card:hover { */
   /* transform: translateY(-4px);
   z-index: 2; */
   /* opacity: 0.8; */
-}
+/* } */
 
-.forecast-card.active {
+/* .forecast-card.active {
   background: #9fabb1;
   transform: translate(30%, 0) scale(1.7);
   color: #d4e2e9;
-  border-radius: 14px;
+  border-radius: 14px; */
   /* margin-left: 3rem; */
   /* z-index: 5; */
-}
+/* } */
 
 
 /* TEXT */

@@ -2,6 +2,7 @@ import { useWeather } from "../WeatherContext";
 import { useMemo, useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { getTenDayWindow } from "../WeatherObject";
+import WheelGesturesPlugin from "embla-carousel-wheel-gestures";
 import "./TenDay.css";
 
 export default function TenDayForecast() {
@@ -13,11 +14,18 @@ export default function TenDayForecast() {
     return getTenDayWindow(dailyWeather);
   }, [dailyWeather]);
 
+const customAlign = (viewSize, snapSize) =>
+  (viewSize - snapSize) * 0.15;
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
+    // align: "center",
+    align: customAlign,
     loop: true,
-    containScroll: "trimSnaps",
-  });
+    dragFree: true,
+    speed: 12,
+  },
+    [WheelGesturesPlugin({forceWheelAxis: "x",}),]
+  );
 
   /* ---- SNAP TO ACTIVE DAY ---- */
   useEffect(() => {
@@ -46,11 +54,12 @@ export default function TenDayForecast() {
 
               return (
                 <div
-                  className={"embla__slide"}
+                  className={`embla__slide ${isActive ? "is-active" : ""}`}
                   key={day}
                   onClick={() => setSelectedIndex(index)}
                 >
-                  <div className={`forecast-card ${isActive ? "active" : ""}`}>
+                  {/* <div className={`forecast-card ${isActive ? "active" : ""}`}> */}
+                  <div className={"forecast-card"}>
                     <p className="day">
                       {new Date(day).toLocaleDateString("en", {
                         weekday: "long",
