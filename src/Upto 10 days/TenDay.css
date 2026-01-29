@@ -1,0 +1,99 @@
+/* PAGE */
+.forecast-page {
+  padding: 20px;
+  width: 100%;
+  align-content: center;
+}
+
+.forecast-page h2 {
+  text-align: center;
+}
+
+/* ---------------- EMBLA ---------------- */
+.embla {
+  position: relative;
+  margin-top: 16px;
+}
+
+.embla__viewport {
+  /* flex: 1; */
+  align-content: center;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+/* -------- RESPONSIVE SLIDES -------- */
+.embla__slide {
+  flex: 0 0 100%;
+  padding: 10px;
+}
+
+@media (min-width: 600px) {
+  .embla__slide {
+    flex: 0 0 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    width: 10px;
+    flex: 0 0 20%;
+  }
+}
+
+.embla__container {
+  /* width: 100%; */
+  /* flex: 1; */
+}
+
+.forecast-card {
+  height: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  background: #b9c4ca;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease, background 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* z-index: 1; */
+}
+
+.forecast-card:hover {
+  /* transform: translateY(-4px);
+  z-index: 2; */
+  /* opacity: 0.8; */
+}
+
+.forecast-card.active {
+  background: #9fabb1;
+  transform: translate(30%, 0) scale(1.7);
+  color: #d4e2e9;
+  border-radius: 14px;
+  /* margin-left: 3rem; */
+  /* z-index: 5; */
+}
+
+
+/* TEXT */
+.day {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.temp {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.details {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  text-align: center;
+}

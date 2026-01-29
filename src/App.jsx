@@ -6,6 +6,7 @@ import Weather from './Home/Weather.jsx'
 import CityLocation from './CityLocation.jsx'
 import { WeatherProvider } from "./WeatherContext";
 import WeatherbyHour from './by Hour/WeatherbyHour.jsx';
+import TenDay from './Upto 10 days/TenDay.jsx'
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
               <Route path="/" element={<Weather />} />
               <Route path="/city" element={<CityLocation />} />                            
               <Route path="/hourly" element={<WeatherbyHour />} />
-               {/* <Route path="/forecast" element={<Forecast />} /> */}
+              <Route path="/forecast" element={<TenDay/>} />
             </Routes>
           </main>
         </div>

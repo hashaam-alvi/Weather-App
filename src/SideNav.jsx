@@ -13,7 +13,8 @@ export default function SideNav() {
     return (
         <nav className="sidebar">
             <div className="sidebar-header">
-                <img src={asim} alt="" /> <span><h3>Weather Report</h3></span> 
+                {/* <img src={asim} alt="" />                  for logo           */} 
+                 <span><h3>Weather Report</h3></span> 
                 
             </div>
 
