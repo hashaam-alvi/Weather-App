@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useWeather } from "../WeatherContext";
 import WeatherbyHourCard from "./WeatherbyHourCard.jsx";
 
 export default function WeatherHourBody() {
   const { hourlyWeather } = useWeather();
-  const [selectedHourId, setSelectedHourId] = useState(null); 
+  const [selectedHourId, setSelectedHourId] = useState(null);
   if (!hourlyWeather) return <p>Loading hourly weather...</p>;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -16,10 +16,11 @@ export default function WeatherHourBody() {
     .map((time, i) => {
       const date = new Date(time);
       if (date < today || date > endOfToday) return null;
-
+      
+      
       return {
         // id: uuidv4(),
-        id:time,
+        id: time,
         time,
         temp: hourlyWeather.temperature_2m[i],
         apparent_temperature: hourlyWeather.apparent_temperature[i],
@@ -35,19 +36,36 @@ export default function WeatherHourBody() {
       };
     })
     .filter(Boolean);
+    
+    useEffect(() => {
+      if (!hourly.length) return;
 
+      const now = new Date();
+
+      const currentHour = hourly.find(hour => {
+        const date = new Date(hour.time);
+        return (
+          date.getHours() === now.getHours() &&
+          date.toDateString() === now.toDateString()
+        );
+      });
+
+      if (currentHour) {
+        setSelectedHourId(currentHour.id);
+      }
+    }, [hourly]);
   return (
 
-      <div className="weatherbyHourBody">
-        {hourly.map(hour => (
-          <WeatherbyHourCard
-            key={hour.id}
-            data={hour}
-            selectedHourId={selectedHourId}
-            setSelectedHourId={setSelectedHourId} 
-          />
-        ))}
-      </div>
+    <div className="weatherbyHourBody">
+      {hourly.map(hour => (
+        <WeatherbyHourCard
+          key={hour.id}
+          data={hour}
+          selectedHourId={selectedHourId}
+          setSelectedHourId={setSelectedHourId}
+        />
+      ))}
+    </div>
 
   );
 }

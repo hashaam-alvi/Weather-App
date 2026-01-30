@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import './WeatherbyHourCard.css'
 import { checkWeatherCode } from "../WeatherObject.js";
 
@@ -22,12 +22,22 @@ export default function WeatherbyHourCard({ data, selectedHourId, setSelectedHou
         setSelectedHourId(isSelected ? null : id);
     }
 
+    const cardRef = useRef(null);
+    useEffect(() => {
+        if (isCurrentHour && cardRef.current) {
+            cardRef.current.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            });
+        }
+    }, [isCurrentHour]);
+
     return (
         <div className="hourCardcontainer">
-            <div className={`weather-hour-card${isCurrentHour ? " current-hour" : ""}${isSelected ? " selected-hour" : ""}`} onClick={handleClick} data-hour-id={id}>
+            <div ref={cardRef} className={`weather-hour-card${isCurrentHour ? " current-hour" : ""}${isSelected ? " selected-hour" : ""}`} onClick={handleClick} data-hour-id={id}>
                 <div className="tempHour">
                     <span>{String(hour).padStart(2, "0")}:00</span>
-                    <strong>🌡️ {String(temp.toFixed(1)).padStart(4, "0")} °C</strong> 
+                    <strong>🌡️ {String(temp.toFixed(1)).padStart(4, "0")} °C</strong>
                     <span>💨 {Number(wind).toFixed(1)} km/h</span>
                     <span>{checkWeatherCode(code)}</span>
                     <span>{is_day ? "🌤 Day" : "🌙 Night"}</span>
