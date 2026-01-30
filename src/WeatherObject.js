@@ -95,43 +95,43 @@ export function checkWeatherCode(code) {
     case 1:
     case 2:
     case 3:
-      return "Partly Cloudy";
+      return "☁️ Partly Cloudy";
     case 45:
     case 48:
-      return "Foggy";
+      return "🌫️ Foggy";
     case 51:
-      return "Light Drizzle"
+      return "☔Light Drizzle"
     case 53:
-      return "Moderate Drizzle"
+      return "☔Moderate Drizzle"
     case 55:
-      return "Heavy Drizzle"
+      return "☔Heavy Drizzle"
     case 56:
-      return "Light Freezing Drizzle"
+      return "🌦️Light Freezing Drizzle"
     case 57:
-      return "Dense Freezing Drizzle"
+      return "🌦️Dense Freezing Drizzle"
     case 61:
     case 80:
-      return "Slight Rain"
+      return "🌧️Slight Rain"
     case 63:
     case 81:
-      return "Moderate Rain"
+      return "🌧️Moderate Rain"
     case 65:
     case 66:
     case 67:
     case 82:
-      return "Heavy Rain"
+      return "⛈️Heavy Rain"
     case 71:
     case 77:
     case 85:
-      return "Light Snow"
+      return "❄️ Light Snow"
     case 73:
-      return "Moderate Snow"
+      return "❄️ Moderate Snow"
     case 75:
     case 77:
     case 86:
-      return "Heavy Snow"
+      return "❄️ Heavy Snow"
     default:
-      return "Clear/Stuck";
+      return "Clear";
   }
 }
 

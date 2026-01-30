@@ -23,7 +23,7 @@ export default function TenDayBody({ dailyWeather }) {
         align: customAlign,
         loop: true,
         dragFree: true,
-        speed: 12,
+        speed: 6,
     },
         [WheelGesturesPlugin({ forceWheelAxis: "x", }),]
     );
@@ -31,7 +31,7 @@ export default function TenDayBody({ dailyWeather }) {
     useEffect(() => {
         if (!emblaApi) return;
         emblaApi.scrollTo(selectedIndex);
-        emblaApi.reInit();
+        // emblaApi.reInit();
     }, [selectedIndex, emblaApi]);
 
 
@@ -61,8 +61,11 @@ export default function TenDayBody({ dailyWeather }) {
 
                                     {isActive && (
                                         <div className="details">
-                                            <p>Sun Rise/Set: <br /> {new Date(tenDays.sunrise[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })} / {new Date(tenDays.sunset[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
-                                            <p>Sun Light Duration: {formattedTime(tenDays.sunLight[index] )}</p>
+                                            <p>Sun Rise / Set <br /> {new Date(tenDays.sunrise[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })} / {new Date(tenDays.sunset[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                            <p>Sun Light Duration <br /> {formattedTime(tenDays.sunLight[index] )}</p>
+                                            <p>Wind Speed <br /> {tenDays.windSpeed[index] } km/h</p>
+                                            <p>Wind Direction <br /> {tenDays.windDir[index] } °</p>
+                                            <p>Precipitation <br /> {tenDays.precipitation[index] } %</p>
                                         </div>
                                     )}
                                 </div>
