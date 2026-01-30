@@ -31,6 +31,7 @@ export default function TenDayBody({ dailyWeather }) {
     useEffect(() => {
         if (!emblaApi) return;
         emblaApi.scrollTo(selectedIndex);
+        emblaApi.reInit();
     }, [selectedIndex, emblaApi]);
 
 
