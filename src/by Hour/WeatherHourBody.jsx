@@ -6,7 +6,6 @@ export default function WeatherHourBody() {
   const { hourlyWeather } = useWeather();
   const [selectedHourId, setSelectedHourId] = useState(null); 
   if (!hourlyWeather) return <p>Loading hourly weather...</p>;
-console.log(hourlyWeather.weather_code)
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 

@@ -17,7 +17,7 @@
 
 .embla__viewport {
   align-content: center;
-  height: 50vh;
+  height: 70vh;
   overflow: hidden;
 }
 
@@ -34,10 +34,11 @@
 
 .embla__slide.is-active {
   z-index: 10;
+  height: 100%;
 }
 
 .embla__slide.is-active .forecast-card {
-  transform: translate(0%, 0) scale(1.7);
+  /* transform: translate(0%, 0) scale(2); */
   border: 1px solid white;
 }
 

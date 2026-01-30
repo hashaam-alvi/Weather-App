@@ -4,7 +4,7 @@ import { checkWeatherCode } from "../WeatherObject.js";
 
 export default function WeatherbyHourCard({ data, selectedHourId, setSelectedHourId }) {
     const { id, time, temp, code, wind, is_day, apparent_temperature, relative_humidity_2m, precipitation_probability, pressure_msl, visibility, wind_gusts_10m, soil_temperature_0cm } = data;
-console.log(code)
+
     const hour = useMemo(() => new Date(time).getHours(), [time]);
 
     const isCurrentHour = useMemo(() => {

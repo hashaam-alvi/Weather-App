@@ -25,7 +25,6 @@ export default function TempHeader() {
                         <p>Feels Like <strong>{currWeather.apparent_temperature} °C</strong> </p>
                         {/* <p> {currWeather.weather_code ? "🌨 Raining" :"Clear Sky"}</p> */}
                         <p> {checkWeatherCode(currWeather.weather_code)}</p>
-                        {console.log(currWeather.weather_code)}
                         <p> {currWeather.is_day ? "☀ Day " : "🌙 Night"}</p>
 
                     </div>

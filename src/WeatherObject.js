@@ -134,3 +134,11 @@ export function checkWeatherCode(code) {
       return "Clear/Stuck";
   }
 }
+
+export function formattedTime(tenDays){
+    const totalMinutes = tenDays;
+    const h = Math.floor(totalMinutes / 3600);
+    const m = ((totalMinutes % 3600) / 60).toFixed(0) ;
+    const formattedTimes = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')} h`;
+    return formattedTimes;
+}

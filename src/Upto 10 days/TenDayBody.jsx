@@ -1,14 +1,14 @@
 
 import { useMemo, useState, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { getTenDayWindow, checkWeatherCode } from "../WeatherObject";
+import { getTenDayWindow, checkWeatherCode, formattedTime } from "../WeatherObject";
 import WheelGesturesPlugin from "embla-carousel-wheel-gestures";
 
 import "./TenDay.css";
 
-export default function TenDayBody({dailyWeather}) {
+export default function TenDayBody({ dailyWeather }) {
 
-  
+
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const tenDays = useMemo(() => {
@@ -34,6 +34,7 @@ export default function TenDayBody({dailyWeather}) {
     }, [selectedIndex, emblaApi]);
 
 
+
     if (!tenDays) return null;
 
     return (
@@ -51,16 +52,16 @@ export default function TenDayBody({dailyWeather}) {
                                     <p className="day">
                                         {new Date(day).toLocaleDateString("en", { weekday: "long", })}
                                         <br />
-                                        {new Date(day).toLocaleDateString("en", {day: "numeric",month: "short",})}
+                                        {new Date(day).toLocaleDateString("en", { day: "numeric", month: "short", })}
                                     </p>
 
                                     <p className="temp">🌡️ {tenDays.max[index]}° / {tenDays.min[index]}° </p>
-                                    <p className="temp"> { checkWeatherCode(tenDays.code[index])} </p>
+                                    <p className="temp"> {checkWeatherCode(tenDays.code[index])} </p>
 
                                     {isActive && (
                                         <div className="details">
-                                            <p>High: {tenDays.max[index]}°</p>
-                                            <p>Low: {tenDays.min[index]}°</p>
+                                            <p>Sun Rise/Set: <br /> {new Date(tenDays.sunrise[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })} / {new Date(tenDays.sunset[index]).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                                            <p>Sun Light Duration: {formattedTime(tenDays.sunLight[index] )}</p>
                                         </div>
                                     )}
                                 </div>
