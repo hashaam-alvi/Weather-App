@@ -48,9 +48,6 @@ export const CurrWeatherObject = [
 export async function fetchWeather(lat, lon) {
   const response = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code,precipitation,wind_speed_10m,wind_direction_10m,pressure_msl,wind_gusts_10m,surface_pressure&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation_probability,pressure_msl,weather_code,visibility,wind_speed_10m,wind_gusts_10m,soil_temperature_0cm,is_day&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,sunrise,sunset,daylight_duration,wind_speed_10m_max,wind_direction_10m_dominant,sunshine_duration,weather_code,&timezone=auto&forecast_days=10`
-
-
-
   )
   return response.json();
 }
