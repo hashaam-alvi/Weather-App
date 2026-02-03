@@ -39,23 +39,46 @@ export default function WeatherHourBody() {
         .filter(Boolean)
     : [];
 
+  // useEffect(() => {
+  //   if (!hourly.length) return;
+
+  //   const now = new Date();
+
+  //   const currentHour = hourly.find((hour) => {
+  //     const date = new Date(hour.time);
+  //     return (
+  //       date.getHours() === now.getHours() &&
+  //       date.toDateString() === now.toDateString()
+  //     );
+  //   });
+
+  //   if (currentHour) {
+  //     setSelectedHourId(currentHour.id);
+  //   }
+  // }, [hourly]);
+
   useEffect(() => {
-    if (!hourly.length) return;
+  if (!hourly.length) return;
+  if (selectedHourId !== null) return; // 👈 THIS is the key
 
-    const now = new Date();
+  const now = new Date();
 
-    const currentHour = hourly.find((hour) => {
-      const date = new Date(hour.time);
-      return (
-        date.getHours() === now.getHours() &&
-        date.toDateString() === now.toDateString()
-      );
-    });
+  const currentHour = hourly.find(hour => {
+    const date = new Date(hour.time);
+    return (
+      date.getHours() === now.getHours() &&
+      date.toDateString() === now.toDateString()
+    );
+  });
 
-    if (currentHour) {
-      setSelectedHourId(currentHour.id);
-    }
-  }, [hourly]);
+  if (currentHour) {
+    setSelectedHourId(currentHour.id);
+  }
+}, [hourly, selectedHourId]);
+
+
+
+
 
   if (!hourlyWeather) {
     return <p>Loading hourly weather...</p>;
